@@ -21,6 +21,7 @@ module Griddler
           subject: params[:subject],
           text: params['body-plain'],
           html: params['body-html'],
+          content_id_map: content_id_map,
           attachments: attachment_files,
           headers: serialized_headers
         }
@@ -76,6 +77,14 @@ module Griddler
           headers[key]
         else
           nil
+        end
+      end
+
+      def content_id_map
+        begin
+          JSON.parse(params['content-id-map'])
+        rescue
+          {}
         end
       end
 
