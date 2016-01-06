@@ -17,6 +17,7 @@ module Griddler
           to: to_recipients,
           cc: cc_recipients,
           bcc: Array.wrap(param_or_header(:Bcc)),
+          recipient: params[:recipient],
           from: determine_sender,
           subject: params[:subject],
           text: params['body-plain'],

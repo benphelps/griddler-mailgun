@@ -5,6 +5,12 @@ require 'griddler/mailgun/adapter'
 module Griddler
   module Mailgun
   end
+
+  class Email
+    def recipient
+      @params[:recipient]
+    end
+  end
 end
 
 Griddler.adapter_registry.register(:mailgun, Griddler::Mailgun::Adapter)
