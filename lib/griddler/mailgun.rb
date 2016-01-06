@@ -8,7 +8,7 @@ module Griddler
 
   class Email
     def recipient
-      @params[:recipient]
+      extract_address(@params[:recipient])
     end
   end
 end
