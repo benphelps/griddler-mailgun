@@ -10,6 +10,10 @@ module Griddler
     def content_id_map
       @params[:content_id_map]
     end
+
+    def recipient
+      extract_address(@params[:recipient])
+    end
   end
 end
 
