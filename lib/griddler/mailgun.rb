@@ -14,6 +14,10 @@ module Griddler
     def recipient
       extract_address(@params[:recipient])
     end
+
+    def delivered_to
+      recipients(:delivered_to)
+    end
   end
 end
 

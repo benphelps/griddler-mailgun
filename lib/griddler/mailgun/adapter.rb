@@ -14,6 +14,7 @@ module Griddler
 
       def normalize_params
         {
+          delivered_to: delivered_to,
           to: to_recipients,
           cc: cc_recipients,
           bcc: Array.wrap(param_or_header(:Bcc)),
@@ -87,6 +88,12 @@ module Griddler
         rescue
           {}
         end
+      end
+
+      def delivered_to
+        to_emails = param_or_header('Delivered-To')
+        return nil unless to_emails
+        to_emails.split(',').map(&:strip)
       end
 
       def attachment_files
